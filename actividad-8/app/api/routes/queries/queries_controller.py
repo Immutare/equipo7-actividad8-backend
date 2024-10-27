@@ -7,9 +7,7 @@ from typing import List
  
 router = APIRouter()
 
-@router.post("/", response_model=dtos.Query)
-def create_query(query: dtos.QueryCreate = Body(...), db: Session = Depends(get_db)):
-    return crud.create_query(db=db, query=query)
+
 
 @router.get("/{query_id}", response_model=dtos.Query)
 def read_query(query_id: int, db: Session = Depends(get_db)):
@@ -21,6 +19,15 @@ def read_query(query_id: int, db: Session = Depends(get_db)):
 @router.get("/", response_model=List[dtos.Query])
 def read_queries(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
     return crud.get_queries(db, skip=skip, limit=limit)
+
+@router.post("/", response_model=dtos.Query)
+def create_query(query: dtos.QueryCreate = Body(...), db: Session = Depends(get_db)):
+    return crud.create_query(db=db, query=query)
+
+
+@router.patch("/{query_id}", response_model=dtos.Query)
+def update(query_id: int, query: dtos.QueryUpdate = Body(...), db: Session = Depends(get_db)):
+    return crud.update_query(db=db, query_id=query_id, query=query)
 
 @router.delete("/{query_id}", response_model=dtos.Query)
 def delete_query(query_id: int, db: Session = Depends(get_db)):

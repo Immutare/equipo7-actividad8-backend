@@ -1,11 +1,11 @@
-import time
+import datetime
 from sqlalchemy import Column, Integer, Text, TIMESTAMP
 from app.models.base import Base
 
 class QueryModel(Base):
     __tablename__ = "queries"
 
-    idqueries = Column(Integer, primary_key=True, index=True)
-    naturallanguagerequest = Column(Text, nullable=False)
+    id = Column(Integer, primary_key=True, index=True)
+    request = Column(Text, nullable=False)
     response = Column(Text, nullable=True)
-    timeofrequest = Column(TIMESTAMP, default=time.time, nullable=False)
+    datecreated = Column(TIMESTAMP, default=datetime.datetime.utcnow, nullable=False)
