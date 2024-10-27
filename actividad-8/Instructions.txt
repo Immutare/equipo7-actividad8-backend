@@ -1,0 +1,10 @@
+Create a virtual environment called env
+Install the requirements.txt with
+
+pip install -r requirements.txt
+
+Set the variables in the .env file to your local
+The related table structure is in table.txt
+
+With the terminal in the parent folder run
+uvicorn app.api.v1.main:app --reload --port 8000
