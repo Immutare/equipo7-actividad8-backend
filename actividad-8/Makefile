@@ -32,6 +32,9 @@ install: generate_dot_env
 run:
 	PYTHONPATH=app/ poetry run uvicorn main:app --reload --host 0.0.0.0 --port 8080
 
+run-w:
+	poetry run uvicorn app.main:app --reload --port 3000
+
 deploy: generate_dot_env
 	docker-compose build
 	docker-compose up -d

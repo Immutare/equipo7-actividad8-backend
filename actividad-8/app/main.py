@@ -1,8 +1,9 @@
 from fastapi import FastAPI
 
-from api.routes.api import router as api_router
-from core.events import create_start_app_handler
-from core.config import API_PREFIX, DEBUG, PROJECT_NAME, VERSION
+from app.core.events import create_start_app_handler
+from app.core.config import API_PREFIX, DEBUG, PROJECT_NAME, VERSION
+from app.api.routes.api import router as api_router
+
 
 
 def get_application() -> FastAPI:

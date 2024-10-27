@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from app.api.v1.db.models.queries import QueryModel
-from app.api.v1.schemas.queries import QueryCreate
+from app.models.queries import QueryModel
+from app.api.routes.queries.queries_dto import QueryCreate
 
 def get_query(db: Session, query_id: int):
     return db.query(QueryModel).filter(QueryModel.idqueries == query_id).first()
