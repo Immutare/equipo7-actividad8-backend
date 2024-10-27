@@ -9,3 +9,7 @@ Equipo 07
 - Aarón Cortés García - A01730451
 - Alonso Pedrero Martínez - A01769076
 - José G. González Núñez - A01795755
+
+---
+## Video
+https://youtu.be/zDWVyvjgwxg
